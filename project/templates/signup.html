@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/sign-up.css')}}">
+</head>
+<body>
+    <div class="signup-box">
+        <h1>Sign Up Here</h1>
+        <form action="/signup" class="form" method="POST">
+            <label for="username" class="lbl">Username</label><br>
+            <input class="input-box" type="text" name="username" id="username" placeholder="Enter Your Username" required><br>
+            <label for="email" class="lbl">Email</label><br>
+            <input class="input-box" type="email" name="email" id="email" placeholder="Enter your email" required><br>
+            <label for="password" class="lbl">Password</label><br>
+            <input class="input-box" type="password" name="password" id="password" placeholder="Enter a Password" required><br>
+            <!-- <div class="success"><p>Sign Up Success</p></div> -->
+                <div class="failure">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                        <p>{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            <input class="btn" type="submit" name="submit" value="Sign Up" id="submit"><br>
+        </form>
+        <p class="login-message">Already Have an account?<a href="{{url_for('auth.login')}}" id="login-link">Login</a></p>
+    </div> 
+    <!-- <script src="/static/js/signup.js"></script>    -->
+</body>
+</html>

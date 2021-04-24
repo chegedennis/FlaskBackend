@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skatrix</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li><a href="{{url_for('main.index')}}">Home</a></li>
+            {% if not current_user.is_authenticated %}
+            <li><a href="{{url_for('auth.signup')}}">Sign Up</a></li>
+            <li><a href="{{url_for('auth.login')}}">Login</a></li>
+            {% endif %}
+            {% if current_user.is_authenticated %}
+            <li><a href="{{url_for('main.profile')}}">Profile</a></li>
+            <li><a href="#">Projects</a>
+                <div class="drop-down">
+                    <ul>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Android Development</a></li>
+                        <li class="python"><a href="#">Machine Learning</a>
+                            <div class= "py">
+                                <ul >
+                                    <li><a href="#">Python files</a></li>
+                                    <li><a href="#">Jupyter files</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>          
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a>
+                <div class="drop-down">
+                    <ul>
+                        <li><a href="https://github.com/chegedennis">Github</a></li>
+                        <li><a href="https://twitter.com/ndungudennis320">Twitter</a></li>
+                        <li><a href="https://www.linkedin.com/in/chege-dennis-88305a205/">Linkedin</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="{{url_for('auth.logout')}}">Logout</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="lists">
+        <h1><u>Python Data Structures Handbook</u></h1>
+        <br>
+        <p>
+            <h2>Lists</h2>
+            Lists can be created as both populated lists and as empty lists. <br>
+            Empty lists are created by the name of the list, equals signs, and a pair of braces. <br>
+            1. An empty list <br>
+            E.g. fruits = [ ] <br>
+            2. A populated list <br>
+            E.g. fruits = ["apples", "bananas", "cranberries", "kiwis", "melons"] <br>
+            Lists in python have various methods for accessing and manipulating the data based on your needs. <br>
+            Before we dive deep in the methods, lets first introduce another data structure known as tuples.
+        </p>
+        <br>
+        <br>
+        <p>
+            <h2>Tuples</h2>
+            Tuples are somewhat similar to lists with a few key differences. <br>
+            Tuples can also be created as both populated and empty tuples. <br>
+            Empty tuples are created by the use of brackets. <br>
+            They're created by the name of the tuple, equals sign, and a pair of brackets. <br>
+            1. An empty tuple <br>
+            E.g. fruits = () <br>
+            2. A populated tuple <br>
+            E.g. fruits = ("apples", "bananas", "cranberries", "kiwis", "melons") <br>
+            Tuples are immutable. This means that once a tuple is created its data cannot be changed. <br>
+            This is the key difference between a list and a tuple. <br>
+        </p>
+        <p>
+            <br>
+            A list is mutable while a tuple is not. <br>
+            Following this fact, a list has more methods available than a tuple has. <br>
+            There are a few common methods that are available to both lists and tuples. <br>
+            <br>
+            <h3>Some few methods available to both tuples and lists are: </h3>
+            <br>
+            1. len(). This returns the number of elements in the list or tuple. I.e. the length of the list/tuple <br>
+            e.g. len(fruits) <br>
+            2. index(). This returns the position of the element in the list or tuple. <br>
+            e.g. fruits.index("melons") <br>
+            3. count(). This returns the number of similar elements in the list or tuple. <br>
+            e.g. fruits.count("apples") <br>
+            <br>
+            <h3> Methods available to lists </h3>
+            <br>
+            1. append(). This adds another element to the end of the list. <br>
+            e.g fruits.append("strawberries") <br>
+            2. clear(). This deletes all the elements in the list and returns an empty list. <br>
+            e.g fruits.clear() <br>
+            3. copy(). This copies the elements of one list into another list. <br>
+            e.g fruits1 = fruits.copy() <br>
+            4. extend(). This adds the contents of another list into the list. <br>
+            e.g fruits.extend(fruits1) <br>
+            5. insert(). This adds another element into a specified index of the list. <br>
+            e.g fruits.insert(3, "pawpaws") <br>
+            6. pop(). This removes the last element of the list. <br>
+            e.g fruits.pop() <br>
+            7. remove(). This removes a specified element from the list. <br>
+            e.g fruits.remove("apples") <br>
+            8. reverse(). This reverses the order of the list. <br>
+            e.g fruits.reverse() <br>
+            9. sort(). This rearranges the elements of the list. <br>
+            e.g fruits.sort() <br>
+            <br>
+            Tuples occupy less memory as compared to lists due to the fact that they are immutable and un-dynamic. <br>
+            They also take less time as compared to lists of the same size. <br>
+            <br>
+            <h2>Sets</h2>
+            Sets are used to store data in which order is not of importance. Sets can store different types of data e.g. strings,
+            integers, floats, Booleans. <br>
+            Sets do not store duplicate data. <br>
+            Sets can be initialized by the use as empty sets or populated sets. <br>
+            Empty sets are created by name of the set, equals signs, the name set followed by a pair of brackets. <br>
+            E.g. details = set () <br>
+            
+            <h3>Methods available to sets</h3>
+            1. add(). Adds another element into the set. <br>
+            e.g details.add("name") <br>
+            2. copy(). Copies the contents of one set into another set. <br>
+            e.g details1 = details.copy() <br>
+            3. clear(). This deletes all the elements in the set and returns an empty set. <br>
+            e.g details.clear() <br>
+            4. len(). This returns the number of elements in the set. returns the length of the set. <br>
+            e.g len(details) <br>
+            5. remove(). This removes an element from the set. <br>
+            e.g details.remove("name") <br>
+            6. discard(). This removes a specified element from the set but if the element does not exist it does nothing(does not
+            return an error) <br>
+            e.g details.discard("name") <br>
+            <br>
+            kenyan = set (["max", "travis", "scot", "amber", "crystal"]) <br>
+            french = set (["trois", "magret", "amber", "chateau", "bear"]) <br>
+            spanish = set (["alejandro", "pendejo", "max", "bear", "katalia"]) <br>
+            mixed = set (["max", "amber"]) <br>
+            <br>
+            7. union(). This joins two sets and returns them as one. <br>
+            e.g kenyan.union(french) <br>
+            8. intersection(). This returns only the elements present in both sets. <br>
+            e.g kenyan.intersection(spanish) <br>
+            9. difference(). This returns the elements which are are present in either sets but not in both. <br>
+            e.g kenyan.difference(french) <br>
+            10. in. returns a boolean to the query is the element is present or absent. <br>
+            e.g "max" in kenyan <br>
+            11. not in. returns a boolean to the query if the element is present or absent. <br>
+            e.g "max" not in kenyan <br>
+            12. issuperset(). Returns a boolean if all some of the elements in the set are all contained in the other set. <br>
+            e.g kenyan.issuperset(mixed) <br>
+            13. issubset(). Returns a boolean if all the elements in the set are contained in the other set. <br>
+            e.g mixed.issubset(kenyan) <br>
+            14. pop(). Removes the last element of the set. <br>
+            e.g details.pop() <br>
+            <br>
+            <br>
+            
+            <h2>Dictionaries/Associative arrays/Maps</h2>
+            Data dictionaries are data structures used to store associated data. They contain key-value pairs. <br> The input is termed
+            as the key while the output is termed as the value. <br>
+            The dictionaries map one value to another. Dictionaries do not store duplicate data. <br>
+            There are several ways of initializing dictionaries: <br>
+            1. An empty dictionary can be intitialized by the use of the dictionary name, equals sign, and a pair of curly braces <br>
+            e.g employee = {} <br>
+            2. Can also be initialized by the use of dictionary name, equals sign, the name 'dict', and a pair of brackets <br>
+            e.g employee = dict() <br>
+            A data dictionary can store various data types of which the order does not matter. <br>
+            
+            a) employee = {"name": "Lucas", "age": 23, "gender": "Male"} <br>
+            b) employee = dict(name = "Lucas", age: 23, gender: "Male") <br>
+            <br>
+            <h3>Methods available to dictionaries</h3>
+            <br>
+            1. len(). Returns the number of key-value pairs in the dictionary <br>
+            e.g len(employee) <br>
+            2. clear(). Deletes all the key-value pairs in the dictionary and returns an empty dictionary <br>
+            e.g employee.clear() <br>
+            3. pop(). Removes the a specified key-value pair in the dictionary. <br>
+            e.g employee.pop("name") <br>
+            4. popitem(). Removes the last key-value pair in the dictionary. <br>
+            e.g employee.popitem() <br>
+            5. copy(). Copies data from one dictionary to another. <br>
+            e.g employee1 = employee.copy() <br>
+            6. keys(). Returns all the keys present in the dictionary. <br>
+            e.g employee.keys() <br>
+            7. values(). Returns all the values present in the dictionary. <br>
+            e.g employee.values() <br>
+            8. get(). Returns the value for a given key. <br>
+            e.g employee.get("age") <br>
+            9. items(). Returns all the key-value pairs. <br>
+            e.g employee.items() <br>
+
+        </p>
+    </div>
+</body>
+</html>

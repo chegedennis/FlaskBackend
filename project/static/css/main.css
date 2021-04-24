@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background: url(images/background.jpg); */
+  background-position: center;
+  background-size: cover;
+  font-family: sans-serif;
+  background: darkgrey;
+}
+
+.menu {
+  background: rgb(0, 100, 0);
+  text-align: center;
+}
+
+.menu ul {
+  display: inline-flex;
+  list-style: none;
+  color: #fff;
+}
+
+.menu ul li {
+  width: 120px;
+  padding: 15px;
+  margin: 15px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu ul li a:hover {
+  cursor: pointer;
+  color: yellow;
+}
+
+.drop-down {
+  display: none;
+}
+
+.menu ul li:hover .drop-down {
+  display: block;
+  position: absolute;
+  background: rgb(0, 100, 0);
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.menu ul li:hover .drop-down ul {
+  display: block;
+  margin: 10px;
+}
+
+.menu ul li:hover .drop-down ul li {
+  border-bottom: 1px #fff dotted;
+  width: 150px;
+  padding: 10px;
+  border-radius: 0;
+  text-align: left;
+}
+
+.menu ul li:hover .drop-down ul li:last-child {
+  border-bottom: none;
+}
+
+.py {
+  display: none;
+}
+
+.python:hover .py {
+  position: absolute;
+  display: block;
+  margin-top: -40px;
+  margin-left: 140px;
+  background: rgb(0, 100, 0);
+}
+
+.lists {
+  padding: 20px;
+  text-align: justify;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+}
